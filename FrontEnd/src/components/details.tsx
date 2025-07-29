@@ -2,12 +2,20 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+interface Contact {
+  id: number;
+  name: string;
+  email: string;
+  number: string;
+}
+
 function ContactDetail() {
-  const { id } = useParams();
-  const [contact, setContact] = useState(null);
+  const { id } = useParams<{ id: string }>(); // tipagem do parâmetro da URL
+  const [contact, setContact] = useState<Contact | null>(null); // tipagem do estado
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (!id) return;
     axios.get(`http://localhost:8000/api/contacts/${id}/`)
       .then(response => setContact(response.data))
       .catch(error => console.error("Erro ao buscar detalhes:", error));
