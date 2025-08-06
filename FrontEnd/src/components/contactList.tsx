@@ -15,7 +15,7 @@ function ContactList() {
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const response = await axios.get<Contact[]>('http://localhost:8000/api/contacts/');
+        const response = await axios.get<Contact[]>('http://13.220.79.190:8000/api/contacts/');
         setContacts(response.data);
       } catch (error) {
         console.error("Erro ao buscar contatos:", error);
@@ -30,7 +30,7 @@ function ContactList() {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:8000/api/contacts/${id}/`);
+      await axios.delete(`http://13.220.79.190:8000/api/contacts/${id}/`); 
       setContacts(prev => prev.filter(contact => contact.id !== id));
     } catch (error) {
       console.error("Erro ao excluir contato:", error);

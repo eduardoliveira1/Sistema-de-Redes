@@ -16,7 +16,7 @@ function ContactDetail() {
 
   useEffect(() => {
     if (!id) return;
-    axios.get(`http://localhost:8000/api/contacts/${id}/`)
+    axios.get(`http://13.220.79.190:8000/api/contacts/${id}/`)
       .then(response => setContact(response.data))
       .catch(error => console.error("Erro ao buscar detalhes:", error));
   }, [id]);

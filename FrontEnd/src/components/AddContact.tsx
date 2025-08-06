@@ -22,7 +22,7 @@ function AddContact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8000/api/contacts/', form);
+      await axios.post('http://13.220.79.190:8000/api/contacts/', form);
       alert("Contato adicionado com sucesso!");
       navigate('/');
     } catch (error) {
